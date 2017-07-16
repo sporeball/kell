@@ -12,6 +12,7 @@ Live demo: [https://jaredreich.com/pell](https://jaredreich.com/pell)
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
+| pell (forked) | 913B            | 1.57kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
@@ -23,7 +24,7 @@ Live demo: [https://jaredreich.com/pell](https://jaredreich.com/pell)
 ## Features
 
 * Pure JavaScript, no dependencies, written in ES6
-* Easily customizable with the sass file (pell.scss) or overwrite the CSS
+* Easily customizable in CSS
 
 Current actions:
 - Bold
