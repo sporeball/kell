@@ -23,7 +23,7 @@
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 862B            | 1.57kB     |        |           |
+| spell         | 826B            | 1.42kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
