@@ -2,14 +2,22 @@
 
 ## Differences with original pell
 
-<ul>
-	<li>More features: text align, more headings</li>
-	<li>Even smaller than the original: 870 bytes</li>
-	<li>Font-awesome icons</li>
-	<li>Less dev dependencies, bring your own transpiler</li>
-	<li>Actions are spread accross different action bars</li>
-	<li>No config, edit the source directly and comment the actions you don't want</li>
-</ul>
+- More features: 
+    - superscript / subscript
+    - text align left/center/right/justify
+    - indent / outdent
+    - more headings
+    - copy / cut/ paste
+    - clear formatting
+    - unlink
+    - undo / redo
+
+- Even smaller than the original: 826 bytes gzipped
+- Font-awesome icons
+- Less dev dependencies, bring your own transpiler
+- Actions are spread accross different action bars
+- No config, edit the source directly and comment the actions you don't want
+
 
 ## Size
 
