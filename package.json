@@ -1,19 +1,19 @@
 {
-  "name": "pell",
-  "description": "pell - the simplest and smallest WYSIWYG text editor for web, with no dependencies",
-  "author": "Jared Reich",
+  "name": "spell",
+  "description": "spell - a fork of pell, the simplest and smallest WYSIWYG text editor for web",
+  "author": "Sylvain Pollet-Villard",
   "contributors": [
-    "Sylvain Pollet-Villard"
+    "Jared Reich"
   ],
-  "version": "0.7.0",
-  "main": "./dist/pell.min.js",
+  "version": "0.1.0",
+  "main": "./dist/spell.min.js",
   "scripts": {
-    "minify": "uglifyjs pell.js > pell.min.js && gzip-size pell.min.js",
+    "babili": "babili spell.js > spell.min.js && gzip-size spell.min.js",
     "lint": "./node_modules/.bin/eslint .js ./"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sylvainpolletvillard/pell.git"
+    "url": "git+https://github.com/sylvainpolletvillard/spell.git"
   },
   "keywords": [
     "text editor",
@@ -24,11 +24,10 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sylvainpolletvillard/pell/issues"
+    "url": "https://github.com/sylvainpolletvillard/spell/issues"
   },
-  "homepage": "https://jaredreich.com/pell",
   "devDependencies": {
-    "gzip-size-cli": "^2.0.0",
-    "uglify-es": "^3.0.24"
+    "babili": "^0.1.4",
+    "gzip-size-cli": "^2.0.0"
   }
 }

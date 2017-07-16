@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) Jared Reich
+Copyright (c) Jared Reich, Sylvain Pollet-Villard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
