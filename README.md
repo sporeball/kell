@@ -18,6 +18,7 @@
 - Actions are spread accross different action bars
 - No config, edit the source directly and comment the actions you don't want
 
+[Try it online](https://sylvainpolletvillard.github.io/spell/demo.html)
 
 ## Size
 
