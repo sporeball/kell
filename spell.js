@@ -38,9 +38,9 @@ function spell() {
 		}),
 		[
 			...[1, 2, 3, 4].map(n => ['Heading' + n, `<H${n}>`]),
-			['Paragraph', '<P>'],
-			['Quote', '<BLOCKQUOTE>'],
-			['Code', '<PRE>']
+			['paragraph', '<P>'],
+			['quote', '<BLOCKQUOTE>'],
+			['code', '<PRE>']
 		].map(([title, format]) => [title, () => exec('formatBlock', format)]),
 		[
 			['insertOrderedList'],
@@ -73,7 +73,7 @@ function spell() {
 	return $('div', 'spell', {}, [
 		$('div', 'spell-bar', {}, actions.map(
 			bar => $('div', 'spell-zone', {}, bar.map(
-				([cmd, onclick = () => exec(cmd), children]) => $('button', 'spell-btn', {
+				([cmd, onclick = () => exec(cmd), children]) => $('button', 'spell-icon', {
 					title: cmd.charAt(0).toUpperCase() + cmd.slice(1).replace(/([A-Z1-9])/g, ' $1'),
 					innerHTML: `<i class="icon-${cmd.toLowerCase()}"></i>`,
 					onclick

@@ -35,7 +35,7 @@
 	counter-reset: btn;
 }
 
-.spell-btn {
+.spell-icon {
 	position: relative;
 	background-color: transparent;
 	border: none;
@@ -47,22 +47,18 @@
 	line-height: 32px;
 }
 
-.spell-btn:hover {
+.spell-icon:hover {
 	background-color: rgba(0,0,0,0.1);
 }
 
-.spell-btn[title^="Heading "] .fa{
-	font-size: 12px;
-}
-
-.spell-btn[title^="Heading "]::after {
+.spell-icon[title^="Heading "]::after {
 	counter-increment: btn;
 	content: counter(btn);
 	font-size: 10px;
 	vertical-align: sub;
 }
 
-.spell-btn > *:nth-child(2) {
+.spell-icon > *:nth-child(2) {
 	position: absolute;
 	top: 0;
 	left: 0;

@@ -31,7 +31,7 @@ https://sylvainpolletvillard.github.io/spell/demo.html
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 935B            | 1.55kB     |        |           |
+| spell         | 933B            | 1.55kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |

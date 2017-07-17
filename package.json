@@ -9,7 +9,7 @@
   "main": "./dist/spell.min.js",
   "scripts": {
     "babili": "babili spell.js > spell.min.js && gzip-size spell.min.js",
-    "lint": "./node_modules/.bin/eslint .js ./"
+    "lint": "eslint spell.js --fix"
   },
   "repository": {
     "type": "git",
