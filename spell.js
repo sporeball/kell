@@ -2,7 +2,7 @@ function spell() {
 	let exec          = (command, value = null) => document.execCommand(command, false, value)
 	let fromCamelCase = str => str.charAt(0).toUpperCase() + str.slice(1).replace(/([A-Z])/g, ' $1')
 	let ensureHTTP    = url => /^https?:\/\//.test(url) ? url : `http://${url}`
-	let faicon        = name => `<i class="fa fa-${name}"></i>`
+	let faicon        = name => `<i class="icon-${name.toLowerCase()}"></i>`
 
 	let actions = [
 		[
@@ -14,23 +14,23 @@ function spell() {
 			['superscript'],
 		],
 		[
-			['justifyLeft', 'align-left'],
-			['justifyCenter', 'align-center'],
-			['justifyRight', 'align-right'],
-			['justifyFull', 'align-justify'],
+			['justifyLeft'],
+			['justifyCenter'],
+			['justifyRight'],
+			['justifyFull'],
 			['indent'],
 			['outdent']
 		],
 		[
-			...[1, 2, 3, 4].map(n => ['Heading ' + n, 'header', '<H' + n + '>']),
-			['Paragraph', void 0, '<P>'],
-			['Quote', 'quote-right', '<BLOCKQUOTE>'],
-			['Code', void 0, '<PRE>']
-		].map(([c, i, format]) => [c, i, () => exec('formatBlock', format)]),
+			...[1, 2, 3, 4].map(n => ['Heading ' + n, '<H' + n + '>', 'h']),
+			['Paragraph', '<P>'],
+			['Quote', '<BLOCKQUOTE>'],
+			['Code', '<PRE>']
+		].map(([title, format, icon=title]) => [title, icon, () => exec('formatBlock', format)]),
 		[
-			['insertOrderedList', 'list-ol'],
-			['insertUnorderedList', 'list-ul'],
-			['insertHorizontalRule', 'minus'],
+			['insertOrderedList'],
+			['insertUnorderedList'],
+			['insertHorizontalRule'],
 		],
 		[
 			['copy'],
@@ -38,25 +38,21 @@ function spell() {
 			['paste']
 		],
 		[
-			['createLink', 'link', 'link'],
-			['insertImage', 'file-image-o', 'image']
-		].map(([c, i, type]) => [c, i, () => {
+			['createLink', 'link'],
+			['insertImage','image']
+		].map(([cmd, type]) => [cmd, cmd, () => {
 			let url = prompt(`Enter the ${type} URL`)
-			url && exec(c, ensureHTTP(url))
+			url && exec(cmd, ensureHTTP(url))
 		}]),
 		[
-			['removeFormat', 'eraser'],
+			['removeFormat'],
 			['unlink']
 		],
 		[
 			['undo'],
-			['redo', 'repeat']
+			['redo']
 		]
-	].map(bar => bar.map(([cmd, icon=cmd, action = () => exec(cmd)]) => ({
-		action,
-		icon: faicon(icon.toLowerCase()),
-		title: fromCamelCase(cmd)
-	})))
+	]
 
 	let $ = (tag, className, props, children=[]) => {
 		let elm = Object.assign(document.createElement(tag), {className}, props)
@@ -67,10 +63,10 @@ function spell() {
 	return $('div', 'spell', {}, [
 		$('div', 'spell-bar', {}, actions.map(
 			bar => $('div', 'spell-zone', {}, bar.map(
-				({icon, title, action}) => $('button', 'spell-action', {
-					title,
-					innerHTML: icon,
-					onclick: action
+				([cmd, icon = cmd, action = () => exec(cmd)]) => $('button', 'spell-action', {
+					title    : fromCamelCase(cmd),
+					innerHTML: faicon(icon),
+					onclick  : action
 				})
 			))
 		)),

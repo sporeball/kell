@@ -12,8 +12,8 @@
     - unlink
     - undo / redo
 
-- Even smaller than the original: 826 bytes gzipped
-- Font-awesome icons
+- Even smaller than the original: 731 bytes gzipped
+- Custom icon font
 - Less dev dependencies, bring your own transpiler
 - Actions are spread accross different action bars
 - No config, edit the source directly and comment the actions you don't want
@@ -24,7 +24,7 @@
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 826B            | 1.42kB     |        |           |
+| spell         | 731B            | 1.19kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
