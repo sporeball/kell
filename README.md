@@ -6,10 +6,13 @@
     - superscript / subscript
     - text align left/center/right/justify
     - indent / outdent
-    - more headings
-    - copy / cut/ paste
+    - font family
+    - font size
+    - text foreground color and highlight color
+    - more headings    
     - clear formatting
     - unlink
+    - copy / cut/ paste
     - undo / redo
 
 - Even smaller than the original: 731 bytes gzipped
@@ -24,7 +27,7 @@
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 731B            | 1.19kB     |        |           |
+| spell         | 893B            | 1.48kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
@@ -36,13 +39,12 @@
 ## Installation and Usage
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="spell.css">
 
 <div id="container"></div>
 
 <script src="spell.js"></script>
-<script >document.getElementById('container').appendChild(spell())</script>
+<script>document.getElementById('container').appendChild(spell())</script>
 ```
 
 ## License
