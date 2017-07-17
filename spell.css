@@ -11,6 +11,7 @@
 .spell-content {
 	box-sizing: border-box;
 	height: 300px;
+	resize: vertical;
 	outline: 0;
 	overflow-y: auto;
 	padding: 0.5em;
@@ -34,7 +35,7 @@
 	counter-reset: btn;
 }
 
-.spell-action {
+.spell-btn {
 	position: relative;
 	background-color: transparent;
 	border: none;
@@ -46,22 +47,22 @@
 	line-height: 32px;
 }
 
-.spell-action:hover {
+.spell-btn:hover {
 	background-color: rgba(0,0,0,0.1);
 }
 
-.spell-action[title^="Heading "] .fa{
+.spell-btn[title^="Heading "] .fa{
 	font-size: 12px;
 }
 
-.spell-action[title^="Heading "]::after {
+.spell-btn[title^="Heading "]::after {
 	counter-increment: btn;
 	content: counter(btn);
 	font-size: 10px;
 	vertical-align: sub;
 }
 
-.spell-action > *:nth-child(2) {
+.spell-btn > *:nth-child(2) {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -183,7 +184,7 @@
 .icon-unlink:before {
 	content: "\5c";
 }
-.icon-createlink:before {
+.icon-link:before {
 	content: "\40";
 }
 .icon-forecolor:before {
@@ -195,10 +196,10 @@
 .icon-removeformat:before {
 	content: "\74";
 }
-.icon-insertimage:before {
+.icon-image:before {
 	content: "\70";
 }
-.icon-insertvideo:before {
+.icon-video:before {
 	content: "\6d";
 }
 .icon-fontname:before {

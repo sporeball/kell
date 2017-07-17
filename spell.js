@@ -1,11 +1,12 @@
 function spell() {
-	let exec = (command, value=null) => document.execCommand(command, false, value)
 	let $ = (tag, className, props, children=[]) => {
 		let elm = Object.assign(document.createElement(tag), {className}, props)
 		children.map(child => child && elm.appendChild(child))
 		return elm
 	}
 
+	let exec = (command, value=null) => document.execCommand(command, false, value)
+	let ensureHTTP = url => /^https?:\/\//.test(url) ? url : `http://${url}`
 	let colorPicker = () => $('input', '', { type: 'color' })
 	let select = options => $('select', '', {}, options.map(o => $('option', '', { textContent:o })))
 
@@ -52,10 +53,11 @@ function spell() {
 		],
 		[
 			['createLink', 'link'],
-			['insertImage','image']
-		].map(([cmd, type]) => [cmd, () => {
+			['insertImage','image'],
+			['insertHTML', 'video', url => `<video controls src="${ensureHTTP(url)}">`]
+		].map(([cmd, type, transform=ensureHTTP]) => [type, () => {
 			let url = prompt(`Enter the ${type} URL`)
-			url && exec(cmd, /^https?:\/\//.test(url) ? url : `http://${url}`)
+			url && exec(cmd, transform(url))
 		}]),
 		[
 			['copy'],
@@ -71,7 +73,7 @@ function spell() {
 	return $('div', 'spell', {}, [
 		$('div', 'spell-bar', {}, actions.map(
 			bar => $('div', 'spell-zone', {}, bar.map(
-				([cmd, onclick = () => exec(cmd), children]) => $('button', 'spell-action', {
+				([cmd, onclick = () => exec(cmd), children]) => $('button', 'spell-btn', {
 					title: cmd.charAt(0).toUpperCase() + cmd.slice(1).replace(/([A-Z1-9])/g, ' $1'),
 					innerHTML: `<i class="icon-${cmd.toLowerCase()}"></i>`,
 					onclick

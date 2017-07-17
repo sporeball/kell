@@ -12,6 +12,7 @@
     - more headings    
     - clear formatting
     - unlink
+    - insert video
     - copy / cut/ paste
     - undo / redo
 
@@ -27,7 +28,7 @@
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 893B            | 1.48kB     |        |           |
+| spell         | 935B            | 1.55kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
