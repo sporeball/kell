@@ -9,6 +9,7 @@
   "main": "./dist/spell.min.js",
   "scripts": {
     "babili": "babili spell.js > spell.min.js && gzip-size spell.min.js",
+    "watch": "babili spell.js --out-file spell.min.js --watch",
     "lint": "eslint spell.js --fix"
   },
   "repository": {
@@ -28,6 +29,6 @@
   },
   "devDependencies": {
     "babili": "^0.1.4",
-    "gzip-size-cli": "^2.0.0"
+    "gzip-size-cli": "^2.1.0"
   }
 }

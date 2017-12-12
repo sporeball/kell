@@ -1,14 +1,14 @@
 function spell() {
-	let $ = (tag, className, props, children=[]) => {
-		let elm = Object.assign(document.createElement(tag), {className}, props)
+	let $ = (tag, props, children=[]) => {
+		let elm = Object.assign(document.createElement(tag), props)
 		children.map(child => child && elm.appendChild(child))
 		return elm
 	}
 
 	let exec = (command, value=null) => document.execCommand(command, false, value)
-	let ensureHTTP = url => /^https?:\/\//.test(url) ? url : `http://${url}`
-	let colorPicker = () => $('input', '', { type: 'color' })
-	let select = options => $('select', '', {}, options.map(o => $('option', '', { textContent:o })))
+	let ensureHTTP = url => /^https?:\//.test(url) ? url : `http://${url}`
+	let colorPicker = () => $('input', { type: 'color' })
+	let select = options => $('select', {}, options.map(o => $('option', { textContent:o })))
 
 	let actions = [
 		[
@@ -32,10 +32,7 @@ function spell() {
 			['fontSize', select([...Array(33)].map((_,i)=>8+i*2))],
 			['forecolor', colorPicker()],
 			['hilitecolor', colorPicker()]
-		].map(([cmd, input]) => {
-			input.onchange = () => exec(cmd, input.value)
-			return [cmd, () => input.click(), [input]]
-		}),
+		].map(([cmd, input]) => [cmd, 0, [Object.assign(input, { onchange: () => exec(cmd, input.value) })]]),
 		[
 			...[1, 2, 3, 4].map(n => ['Heading' + n, `<H${n}>`]),
 			['paragraph', '<P>'],
@@ -70,17 +67,19 @@ function spell() {
 		]
 	]
 
-	return $('div', 'spell', {}, [
-		$('div', 'spell-bar', {}, actions.map(
-			bar => $('div', 'spell-zone', {}, bar.map(
-				([cmd, onclick = () => exec(cmd), children]) => $('button', 'spell-icon', {
+	return $('div', { className: 'spell' }, [
+		$('div', { className: 'spell-bar' }, actions.map(
+			bar => $('div', { className: 'spell-zone' }, bar.map(
+				([cmd, onclick = () => exec(cmd), children]) => $('button', {
+					className: 'spell-icon',
 					title: cmd.charAt(0).toUpperCase() + cmd.slice(1).replace(/([A-Z1-9])/g, ' $1'),
 					innerHTML: `<i class="icon-${cmd.toLowerCase()}"></i>`,
 					onclick
 				}, children)
 			))
 		)),
-		$('div', 'spell-content', {
+		$('div', {
+			className: 'spell-content',
 			contentEditable: true,
 			onkeydown: event => event.which !== 9
 		})

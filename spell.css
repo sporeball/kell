@@ -69,6 +69,7 @@
 	-moz-appearance: none;
 	appearance: none;
 	background: transparent;
+	cursor: pointer;
 	border: 0;
 	padding: 0;
 }

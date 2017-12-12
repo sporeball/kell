@@ -20,7 +20,7 @@ https://sylvainpolletvillard.github.io/spell/demo.html
     - copy / cut/ paste
     - undo / redo
 
-- Even smaller than the original: 731 bytes gzipped
+- Even smaller than the original: 923 bytes gzipped
 - Custom icon font
 - Less dev dependencies, bring your own transpiler
 - Actions are spread accross different action bars
@@ -31,7 +31,7 @@ https://sylvainpolletvillard.github.io/spell/demo.html
 
 | library       | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------|-----------------|------------|--------|-----------|
-| spell         | 933B            | 1.55kB     |        |           |
+| spell         | 923B            | 1.57kB     |        |           |
 | pell          | 1.11kB          | 2.85kB     |        |           |
 | medium-editor | 27kB            | 105kB      |        |           |
 | quill         | 43kB            | 205kB      |        |           |
