@@ -5,7 +5,7 @@
   "contributors": [
     "Jared Reich"
   ],
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "./dist/spell.min.js",
   "scripts": {
     "babili": "babili spell.js > spell.min.js && gzip-size spell.min.js",
