@@ -28,11 +28,11 @@ function spell() {
 			['outdent']
 		],
 		[
-			['fontName', select(["Arial", "Helvetica", "Times", "Courier", "Verdana", "Impact"])],
+			['fontName', select(["serif","sans-serif","monospace","cursive","fantasy"])],
 			['fontSize', select([...Array(33)].map((_,i)=>8+i*2))],
 			['forecolor', colorPicker()],
 			['hilitecolor', colorPicker()]
-		].map(([cmd, input]) => [cmd, 0, [Object.assign(input, { onchange: () => exec(cmd, input.value) })]]),
+		].map(([cmd, input]) => [cmd, 0, Object.assign(input, { onchange: () => exec(cmd, input.value) })]),
 		[
 			...[1, 2, 3, 4].map(n => ['Heading' + n, `<H${n}>`]),
 			['paragraph', '<P>'],
@@ -70,12 +70,11 @@ function spell() {
 	return $('div', { className: 'spell' }, [
 		$('div', { className: 'spell-bar' }, actions.map(
 			bar => $('div', { className: 'spell-zone' }, bar.map(
-				([cmd, onclick = () => exec(cmd), children]) => $('button', {
+				([cmd, onclick = () => exec(cmd), control]) => $('button', {
 					className: 'spell-icon',
 					title: cmd.charAt(0).toUpperCase() + cmd.slice(1).replace(/([A-Z1-9])/g, ' $1'),
-					innerHTML: `<i class="icon-${cmd.toLowerCase()}"></i>`,
 					onclick
-				}, children)
+				}, [$('i', { className: "icon-"+cmd.toLowerCase() }), control])
 			))
 		)),
 		$('div', {
