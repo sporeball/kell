@@ -31,7 +31,7 @@ function spell() {
 			['hilitecolor', colorPicker()]
 		].map(([cmd, input]) => [cmd, 0, Object.assign(input, { onchange: () => exec(cmd, input.value) })]),
 		[
-			...[1, 2, 3, 4].map(n => ['Heading' + n, `<H${n}>`]),
+			...[1, 2, 3, 4].map(n => ['heading' + n, `<H${n}>`]),
 			['paragraph', '<p>'],
 			['quote', '<blockquote>'],
 			['code', '<pre>']

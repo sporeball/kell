@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 .spell {
 	border-radius: 5px;
 	box-shadow: 0 1px 3px rgba(10, 10, 10, 0.25);
@@ -51,7 +50,7 @@
 	background-color: rgba(0,0,0,0.1);
 }
 
-.spell-icon[title^="Heading "]::after {
+.spell-icon[title^="heading "]::after {
 	counter-increment: btn;
 	content: counter(btn);
 	font-size: 10px;
