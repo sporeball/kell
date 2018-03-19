@@ -7,6 +7,12 @@ function spell() {
 	let colorPicker = () => $('input', { type: 'color' })
 	let select = options => $('select', {}, options.map(o => $('option', { textContent:o })))
 
+	let buttons = {};
+	let queryState = () => {
+		for(let cmd in buttons)
+			buttons[cmd].classList.toggle('selected', document.queryCommandState(cmd))
+	}
+
 	let actions = [
 		[
 			['bold'],
@@ -64,7 +70,7 @@ function spell() {
 	return $('div', { className: 'spell' }, [
 		$('div', { className: 'spell-bar' }, actions.map(
 			bar => $('div', { className: 'spell-zone' }, bar.map(
-				([cmd, onclick = () => exec(cmd), control]) => $('button', {
+				([cmd, onclick = () => exec(cmd), control]) => buttons[cmd] = $('button', {
 					className: 'spell-icon',
 					title: cmd.replace(/([^a-z])/g, ' $1').toLowerCase(),
 					onclick
@@ -74,7 +80,9 @@ function spell() {
 		$('div', {
 			className: 'spell-content',
 			contentEditable: true,
-			onkeydown: event => event.which !== 9
+			onkeydown: event => event.which !== 9,
+			onkeyup: queryState,
+			onmouseup: queryState
 		})
 	])
 }
