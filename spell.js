@@ -4,11 +4,11 @@ function spell() {
 	let $ = (tag, props, children=[], elm=document.createElement(tag)) =>
 		children.map(child => child && elm.appendChild(child)) && Object.assign(elm, props)
 
-	let colorPicker = () => $('input', { type: 'color' })
+	let colorPicker = _=> $('input', { type: 'color' })
 	let select = options => $('select', {}, options.map(o => $('option', { textContent:o })))
 
 	let buttons = {};
-	let queryState = () => {
+	let queryState = _=> {
 		for(let cmd in buttons)
 			buttons[cmd].classList.toggle('selected', document.queryCommandState(cmd))
 	}
@@ -31,17 +31,17 @@ function spell() {
 			['outdent']
 		],
 		[
-			['fontName', select(["serif","sans-serif","monospace","cursive","fantasy"])],
+			['fontName', select(['serif','sans-serif','monospace','cursive','fantasy'])],
 			['fontSize', select([...Array(33)].map((_,i)=>8+i*2))],
 			['forecolor', colorPicker()],
 			['hilitecolor', colorPicker()]
-		].map(([cmd, input]) => [cmd, 0, Object.assign(input, { onchange: () => exec(cmd, input.value) })]),
+		].map(([cmd, input]) => [cmd, 0, Object.assign(input, { onchange: _=> exec(cmd, input.value) })]),
 		[
-			...[1, 2, 3, 4].map(n => ['heading' + n, `<H${n}>`]),
+			...[1, 2, 3, 4].map(n => ['heading' + n, `<h${n}>`]),
 			['paragraph', '<p>'],
 			['quote', '<blockquote>'],
 			['code', '<pre>']
-		].map(([title, format]) => [title, () => exec('formatBlock', format)]),
+		].map(([title, format]) => [title, _=> exec('formatBlock', format)]),
 		[
 			['insertOrderedList'],
 			['insertUnorderedList'],
@@ -70,11 +70,11 @@ function spell() {
 	return $('div', { className: 'spell' }, [
 		$('div', { className: 'spell-bar' }, actions.map(
 			bar => $('div', { className: 'spell-zone' }, bar.map(
-				([cmd, onclick = () => exec(cmd), control]) => buttons[cmd] = $('button', {
+				([cmd, onclick = _=> exec(cmd), control]) => buttons[cmd] = $('button', {
 					className: 'spell-icon',
 					title: cmd.replace(/([^a-z])/g, ' $1').toLowerCase(),
 					onclick
-				}, [$('i', { className: "icon-"+cmd.toLowerCase() }), control])
+				}, [$('i', { className: 'icon-'+cmd.toLowerCase() }), control])
 			))
 		)),
 		$('div', {
