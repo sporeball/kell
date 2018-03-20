@@ -5,11 +5,11 @@
   "contributors": [
     "Jared Reich"
   ],
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "./dist/spell.min.js",
   "scripts": {
-    "babili": "babili spell.js > spell.min.js && gzip-size spell.min.js",
-    "watch": "babili spell.js --out-file spell.min.js --watch",
+    "minify": "uglifyjs spell.js --compress --mangle --ecma 7 -o spell.min.js && npm run size",
+    "size": "gzip-size spell.min.js",
     "lint": "eslint spell.js --fix"
   },
   "repository": {
@@ -28,7 +28,8 @@
     "url": "https://github.com/sylvainpolletvillard/spell/issues"
   },
   "devDependencies": {
-    "babili": "^0.1.4",
-    "gzip-size-cli": "^2.1.0"
+    "eslint": "^4.19.0",
+    "gzip-size-cli": "^2.1.0",
+    "uglify-es": "^3.3.9"
   }
 }
