@@ -1,53 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-	<title>spell</title>
-	<link rel="stylesheet" type="text/css" href="spell.css">
-	<style>
-		html, body {
-			font-family: "Segoe UI", Calibri, sans-serif;
-			font-size: 16px;
-		}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kell</title>
+    <link rel="stylesheet" type="text/css" href="src/kell.css">
+    <style>
+      html, body {
+        font-family: "Segoe UI", Calibri, sans-serif;
+        font-size: 16px;
+      }
 
-		.content {
-			box-sizing: border-box;
-			margin: 1em auto;
-			max-width: 1200px;
-		}
-	</style>
-</head>
-<body>
-<div class="content">
-	<h1>spell</h1>
-	<div id="container"></div>
-
-	<h2>Differences with original <a href="https://github.com/jaredreich/pell" target="_blank">pell</a></h2>
-	<ul>
-		<li>Even smaller than the original: <strong>912 bytes</strong> minified and gzipped</li>
-		<li>Moooore features: <ul>
-			<li>superscript / subscript</li>
-			<li>text align left/center/right/justify</li>
-			<li>indent / outdent</li>
-			<li>font family</li>
-			<li>font size</li>
-			<li>text foreground color and highlight color</li>
-			<li>more headings</li>
-			<li>clear formatting</li>
-			<li>unlink</li>
-			<li>insert video</li>
-			<li>copy / cut / paste</li>
-			<li>undo / redo</li>
-		</ul></li>
-		<li>Custom icon font</li>
-		<li>Less dev dependencies, bring your own transpiler</li>
-		<li>Actions are spread accross different action bars</li>
-		<li>No config, edit the <a href="spell.js" target="_blank">source</a> directly and comment the actions you don't want</li>
-	</ul>
-</div>
-
-
-<script src="spell.min.js"></script>
-<script>document.getElementById('container').appendChild(spell())</script>
-</body>
+      .content {
+        box-sizing: border-box;
+        margin: 1em auto;
+        max-width: 1200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1>kell</h1>
+      <div id="container"></div>
+    </div>
+    <script src="dist/kell.min.js"></script>
+    <script>document.getElementById('container').appendChild(kell())</script>
+  </body>
 </html>

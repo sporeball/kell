@@ -1,35 +1,33 @@
 {
-  "name": "spell",
-  "description": "spell - a fork of pell, the simplest and smallest WYSIWYG text editor for web",
-  "author": "Sylvain Pollet-Villard",
-  "contributors": [
-    "Jared Reich"
-  ],
-  "version": "0.9.0",
-  "main": "./dist/spell.min.js",
+  "name": "kell",
+  "version": "0.1.0",
+  "description": "the simplest and smallest code editor for web, with no dependencies",
+  "main": "dist/kell.js",
   "scripts": {
-    "minify": "uglifyjs spell.js --compress --mangle --ecma 7 -o spell.min.js && npm run size",
-    "size": "gzip-size spell.min.js",
-    "lint": "eslint spell.js --fix"
+    "build": "terser src/kell.js -c -m -o dist/kell.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sylvainpolletvillard/spell.git"
+    "url": "git+https://github.com/sporeball/kell.git"
   },
   "keywords": [
-    "text editor",
     "editor",
-    "rich text",
-    "wysiwyg",
-    "contenteditable"
+    "code",
+    "text editor",
+    "code editor",
+    "pell",
+    "spell",
+    "ace",
+    "codemirror"
   ],
+  "author": "sporeball",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sylvainpolletvillard/spell/issues"
+    "url": "https://github.com/sporeball/kell/issues"
   },
+  "homepage": "https://github.com/sporeball/kell#readme",
   "devDependencies": {
-    "eslint": "^4.19.0",
-    "gzip-size-cli": "^2.1.0",
-    "uglify-es": "^3.3.9"
+    "terser": "^5.14.1"
   }
 }
