@@ -3,6 +3,11 @@ function kell() {
     children.map(child => child && elm.appendChild(child)) && Object.assign(elm, props)
 
   return $('div', { className: 'kell' }, [
+    $('div', {
+      className: 'kell-gutter',
+    }, [
+      $('p', { innerHTML: '1' })
+    ]),
     $('textarea', {
       className: 'kell-content',
       spellcheck: false,
