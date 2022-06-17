@@ -22,18 +22,29 @@ function kell(id, container) {
     }
   };
 
-  container.appendChild(
-    $('div', { id: id, className: 'kell' }, [
-      $('div', { className: 'kell-gutter', }, [
-        $('p', { innerHTML: '1' })
-      ]),
-      $('textarea', {
-        className: 'kell-content',
-        spellcheck: false,
-        onkeydown: event => event.which !== 9,
-        oninput: e => redraw(e.target),
-        onscroll: e => e.target.previousSibling.scrollTop = e.target.scrollTop
-      })
-    ])
-  );
+  // kell component
+  let self = $('div', { id: id, className: 'kell' }, [
+    $('div', { className: 'kell-gutter', }, [
+      $('p', { innerHTML: '1' })
+    ]),
+    $('textarea', {
+      className: 'kell-content',
+      spellcheck: false,
+      onkeydown: event => event.which !== 9,
+      oninput: e => redraw(e.target),
+      onscroll: e => e.target.previousSibling.scrollTop = e.target.scrollTop
+    })
+  ]);
+
+  // get and set content
+  Object.defineProperty(self, 'content', {
+    get() { return this.children[1].value; },
+    set(v) {
+      this.children[1].value = v;
+      redraw(this.children[1]);
+    }
+  });
+
+  // append
+  container.appendChild(self);
 }
