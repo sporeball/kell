@@ -1,3 +1,16 @@
+/*
+  kell
+  copyright (c) 2022 sporeball
+  pell copyright (c) 2019 Jared Reich
+  spell copyright (c) 2018 Sylvain Pollet-Villard
+  MIT license
+*/
+
+/**
+ * create a kell component and append it to a container
+ * @param {string} id ID to assign to the component
+ * @param {Element} container element to append the component to
+ */
 function kell(id, container) {
   let $ = (tag, props, children=[], elm=document.createElement(tag)) =>
     children.map(child => child && elm.appendChild(child)) && Object.assign(elm, props)
