@@ -1,4 +1,4 @@
-function kell() {
+function kell(id, container) {
   let $ = (tag, props, children=[], elm=document.createElement(tag)) =>
     children.map(child => child && elm.appendChild(child)) && Object.assign(elm, props)
 
@@ -22,18 +22,18 @@ function kell() {
     }
   };
 
-  return $('div', { className: 'kell' }, [
-    $('div', {
-      className: 'kell-gutter',
-    }, [
-      $('p', { innerHTML: '1' })
-    ]),
-    $('textarea', {
-      className: 'kell-content',
-      spellcheck: false,
-      onkeydown: event => event.which !== 9,
-      oninput: e => redraw(e.target),
-      onscroll: e => e.target.previousSibling.scrollTop = e.target.scrollTop
-    })
-  ])
+  container.appendChild(
+    $('div', { id: id, className: 'kell' }, [
+      $('div', { className: 'kell-gutter', }, [
+        $('p', { innerHTML: '1' })
+      ]),
+      $('textarea', {
+        className: 'kell-content',
+        spellcheck: false,
+        onkeydown: event => event.which !== 9,
+        oninput: e => redraw(e.target),
+        onscroll: e => e.target.previousSibling.scrollTop = e.target.scrollTop
+      })
+    ])
+  );
 }
