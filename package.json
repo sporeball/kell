@@ -4,7 +4,11 @@
   "description": "the simplest and smallest code editor for web, with no dependencies",
   "main": "dist/kell.js",
   "scripts": {
-    "build": "terser src/kell.js -c -m -o dist/kell.min.js",
+    "min-js": "terser src/kell.js -c -m -o dist/kell.min.js",
+    "min-css": "cleancss -O2 -o dist/kell.min.css src/kell.css",
+    "sort-css": "linn src/kell.css && echo -e",
+    "size": "echo 'minified & gzipped:' && echo -n 'JS: ' && gzip-size dist/kell.min.js && echo -n 'CSS: ' && gzip-size dist/kell.min.css",
+    "build": "npm run --silent min-js && npm run --silent sort-css && npm run --silent min-css && npm run --silent size",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +32,9 @@
   },
   "homepage": "https://github.com/sporeball/kell#readme",
   "devDependencies": {
+    "clean-css-cli": "^5.6.0",
+    "gzip-size-cli": "^5.1.0",
+    "linn": "^0.1.0",
     "terser": "^5.14.1"
   }
 }
