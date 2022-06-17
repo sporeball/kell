@@ -3,9 +3,9 @@ function kell() {
     children.map(child => child && elm.appendChild(child)) && Object.assign(elm, props)
 
   return $('div', { className: 'kell' }, [
-    $('div', {
+    $('textarea', {
       className: 'kell-content',
-      contentEditable: true,
+      spellcheck: false,
       onkeydown: event => event.which !== 9,
     })
   ])
