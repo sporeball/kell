@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kell</title>
+    <link rel="stylesheet" type="text/css" href="dist/kell.min.css">
+    <style>
+      body {
+        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        line-height:1.4;
+        background-color:#eee;
+        color:#222;
+        max-width:1000px;
+        margin:auto;
+        font-size:15px;
+      }
+
+      header, footer {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+
+      h1, h2, h3 {
+        font-weight:400;
+      }
+
+      a {
+        text-decoration:none;
+        color:#0076d1;
+      }
+
+      a:hover {
+        text-decoration:underline;
+      }
+
+      .kell {
+        width:500px;
+        height:200px
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>kell</h1>
+      <div id="container"></div>
+    </header>
+    <main>
+      <h2>features</h2>
+      <ul>
+        <li><i>even smaller</i> than its contemporaries (<b>535 bytes</b> of JavaScript, minified and gzipped)</li>
+        <li><i>no-frills</i> editing area (nothing except for line numbers)</li>
+        <li><i>still customizable</i> (use CSS variables, or write your own styles)</li>
+      </ul>
+    </main>
+    <footer>
+      <h3 style="margin-bottom:0">more info &plus; source code</h3>
+      <h3 style="margin-top:0.5rem"><a href="https://github.com/sporeball/kell" target="_blank">view on GitHub</a></h3>
+      <p style="font-size:13px">(c) 2022 <a href="https://sporeball.dev" target="_blank">sporeball</a></p>
+    </footer>
+    <script src="dist/kell.min.js"></script>
+    <script>
+      const editor = kell('editor', document.getElementById('container'));
+      editor.content = 'the simplest and smallest code editor for web, with no dependencies\n\n';
+    </script>
+  </body>
+</html>
