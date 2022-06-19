@@ -60,4 +60,6 @@ function kell(id, container) {
 
   // append
   container.appendChild(self);
+
+  return self;
 }
