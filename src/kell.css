@@ -23,7 +23,8 @@
   border-right:1px solid var(--kell-border);
   width:43px;
   padding:10px 8px 8px;
-  background:var(--kell-gutter-bg)
+  background:var(--kell-gutter-bg);
+  user-select:none
 }
 
 .kell-gutter p {
