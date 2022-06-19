@@ -2,7 +2,7 @@
   "name": "kell",
   "version": "0.1.0",
   "description": "the simplest and smallest code editor for web, with no dependencies",
-  "main": "dist/kell.js",
+  "main": "dist/kell.min.js",
   "scripts": {
     "min-js": "terser src/kell.js -c -m -o dist/kell.min.js",
     "min-css": "cleancss -O2 -o dist/kell.min.css src/kell.css",
