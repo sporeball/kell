@@ -43,7 +43,7 @@ function kell(id, container) {
     $('textarea', {
       className: 'kell-content',
       spellcheck: false,
-      onkeydown: event => event.which !== 9,
+      onkeydown: e => e.key !== 'Tab',
       oninput: e => redraw(e.target),
       onscroll: e => e.target.previousSibling.scrollTop = e.target.scrollTop
     })
